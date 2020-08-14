@@ -1,0 +1,6 @@
+{
+  "pages": [
+    "storybook/pages/index/index",
+    "storybook/pages/search/index"
+  ]
+}
