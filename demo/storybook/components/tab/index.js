@@ -10,6 +10,10 @@ Component({
         'tab1',
         'tab2'
       ]
+    },
+    current: {
+      type: Number,
+      value: 0
     }
   },
 
@@ -17,7 +21,7 @@ Component({
    * 组件的初始数据
    */
   data: {
-    currentIndex: 0
+  
   },
 
   /**
@@ -26,10 +30,6 @@ Component({
   methods: {
     _onClick: function(e) {
       const { index } = e.currentTarget.dataset;
-      this.setData({
-        currentIndex: index
-      });
-
       this.triggerEvent('onChange', {index});
     }
   }

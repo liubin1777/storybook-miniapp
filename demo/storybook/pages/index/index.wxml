@@ -8,12 +8,12 @@
 			<searchbar />
 		</view>
 		<!-- 分类tab -->
-		<tab list="{{tabList}}" bind:onChange="onTabChange" />
+		<tab current="{{tabCurrent}}" list="{{tabList}}" bind:onChange="onTabChange" />
 	</view>
 
 	<!-- 列表内容 -->
 	<view class="swiper-container">
-		<swiper>
+		<swiper current="{{swiperCurrent}}" bindchange="swiperChange">
 			<block wx:for="{{tabListComps}}" wx:key="*this" wx:for-item="swiperItem">
 				<swiper-item>
 					<block wx:for="{{swiperItem}}" wx:for-item="cmpCates" wx:key="*this">

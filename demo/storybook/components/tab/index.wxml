@@ -1,7 +1,7 @@
 <!--components/tab/index.wxml-->
 <view class="cmp-tab">
 	<block wx:for="{{list}}" wx:key="*this">
-		<view class="{{index == currentIndex ? 'cmp-tab__selected' : 'cmp-tab__normal'}}" bindtap="_onClick" data-index="{{index}}">
+		<view class="{{index == current ? 'cmp-tab__selected' : 'cmp-tab__normal'}}" bindtap="_onClick" data-index="{{index}}">
 			<text class="cmp-tab__title">{{item}}</text>
 			<view class="cmp-tab__line-style" />
 		</view>
