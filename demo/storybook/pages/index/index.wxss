@@ -1,0 +1,31 @@
+/**index.wxss**/
+.search {
+  width: 750rpx;
+}
+
+.top-bar {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.swiper-container {
+  /* background: lightblue; */
+  /* height: 100vh; */
+}
+
+.my-cells {
+  background: lightgray;
+}
+
+.my-cell {
+  /* background: red; */
+  margin-top: 0;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important; 
+}
+
+image {
+  width: 70%;
+  height: 200rpx;
+}

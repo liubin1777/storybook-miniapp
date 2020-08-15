@@ -1,0 +1,11 @@
+<!--index.wxml-->
+<view>
+
+	<!-- 测试组件，开发同学替换为你的组件 -->
+	<view class="cmp-test">
+		<view class="cmp-test__title" style="color: {{mockData.color}}">{{mockData.name}}</view>
+	</view>
+
+	<!-- 状态列表，组件开发同学不需要关注这行代码 -->
+
+</view>

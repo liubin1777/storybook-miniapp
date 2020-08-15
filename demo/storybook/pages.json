@@ -1,0 +1,7 @@
+{
+  "pages": [
+    "storybook/pages/index/index",
+    "storybook/pages/search/index",
+    "components/KingPie/__storybook__/index/index"
+  ]
+}

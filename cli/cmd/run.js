@@ -33,6 +33,7 @@ function run() {
   // 读取配置文件
   const config = require(path.resolve(configPath));
   const { match = [] } = config;
+  console.log(config);
 
   const globPromises = [];
   // 配置playground组件文件
@@ -48,6 +49,7 @@ function run() {
 
   Promise.all(globPromises).then((values) => {
     values.forEach((files) => {
+      console.log(files);
       files.forEach((filePath) => {
         const config = require(path.resolve(filePath, 'config.json'));
         const { pageName, tagName } = config;
@@ -105,7 +107,7 @@ function run() {
     // 写入app.jsond哦pages列表
     const appJSON = require(path.resolve('app.json'));
 
-    const pagesLength = playgroundPagesJSON.pages.length;
+    const pagesLength = storybookPagesJSON.pages.length;
     for (let i = pagesLength - 1; i > -1; i--) {
       const pagePath = storybookPagesJSON.pages[i];
       if (!appJSON.pages.includes(pagePath)) {
