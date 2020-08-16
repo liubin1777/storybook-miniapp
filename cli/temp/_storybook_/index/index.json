@@ -5,6 +5,6 @@
     "state-list": "/storybook/components/state-list/index",
     "cell": "/miniprogram_npm/weui-miniprogram/cell/cell",
     "cells": "/miniprogram_npm/weui-miniprogram/cells/cells",
-    "<%= componentNameEN %>": "../<%= componentNameEN %>/index"
+    "<%= componentNameEN %>": "../../index"
   }
 }
