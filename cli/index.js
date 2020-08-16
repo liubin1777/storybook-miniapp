@@ -1,5 +1,5 @@
 const { program } = require('commander');
-program.version('0.0.4');
+program.version('0.0.5');
 
 require('./cmd/index');
 

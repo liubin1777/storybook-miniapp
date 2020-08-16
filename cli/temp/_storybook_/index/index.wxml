@@ -3,6 +3,7 @@
 
 	<!-- <%= componentNameCN %> -->
 	<<%= componentNameEN %> />
+
 	<!-- 测试组件 -->
 	<view class="cmp-test">
 		<view class="cmp-test__title" style="color: {{mockData.color}}">{{mockData.name}}</view>
