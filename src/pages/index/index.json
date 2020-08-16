@@ -1,4 +1,5 @@
 {
+  "navigationStyle": "default",
   "usingComponents": {
     "searchbar": "/miniprogram_npm/weui-miniprogram/searchbar/searchbar",
     "tab": "../../components/tab/index",

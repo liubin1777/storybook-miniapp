@@ -1,5 +1,6 @@
 {
   "navigationBarTitleText": "<%= componentNameCN %>",
+  "navigationStyle": "default",
   "usingComponents": {
     "searchbar": "/miniprogram_npm/weui-miniprogram/searchbar/searchbar",
     "state-list": "/storybook/components/state-list/index",
