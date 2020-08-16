@@ -5,5 +5,6 @@
 require('./demo');
 require('./init');
 require('./add');
+require('./component');
 require('./run');
 require('./clean');

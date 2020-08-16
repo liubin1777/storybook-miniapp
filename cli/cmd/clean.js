@@ -7,9 +7,9 @@ const fs = require('fs-extra');
 const path = require('path');
 const rimraf = require('rimraf');
 
-program.command('clean').description('清除 storybook 代码').action(clean);
+program.command('clean').description('清除 storybook 代码').action(callback);
 
-function clean() {
+function callback() {
   const pagesPath = path.resolve('./storybook', 'pages.json');
   if (fs.existsSync(pagesPath)) {
     // storybook的pages列表

@@ -1,7 +1,8 @@
 {
   "pages": [
     "storybook/pages/index/index",
-    "storybook/pages/search/index",
-    "components/KingPie/__storybook__/index/index"
+    "components/Banner/_storybook_/index/index",
+    "components/KingPie/_storybook_/index/index",
+    "components/TestComponent/_storybook_/index/index"
   ]
 }

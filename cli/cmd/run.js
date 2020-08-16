@@ -7,15 +7,18 @@ const fs = require('fs-extra');
 const path = require('path');
 const glob = require('glob');
 
-// storybook根目录
-const storybookPath = './storybook';
-// 配置文件
-const configPath = './storybook.config.js';
+program.command('run').description('运行 storybook').action(callback);
 
-program.command('run').description('运行 storybook').action(run);
+function callback(args) {
+  const {rootPath, configPath} = getConfig();
 
-function run() {
-  const configPath = './storybook.config.js';
+  // storybook根目录
+  const storybookPath = `${rootPath}storybook`;
+
+  const appJSONPath = `${rootPath}app.json`;
+
+  // console.log({configPath, storybookPath, appJSONPath});
+
   if (!fs.existsSync(configPath)) {
     console.warn(
       `请在 storybook.config.js （配置文件不存在，请先运行命令：storybook-miniapp init）所在目录运行命令：storybook-miniapp run`
@@ -33,12 +36,11 @@ function run() {
   // 读取配置文件
   const config = require(path.resolve(configPath));
   const { match = [] } = config;
-  console.log(config);
 
   const globPromises = [];
   // 配置playground组件文件
   match.forEach((pattern) => {
-    globPromises.push(globPromise(pattern));
+    globPromises.push(globPromise(`${rootPath}${pattern}`));
   });
 
   // 读取页面
@@ -47,6 +49,7 @@ function run() {
   const pageCompsMap = {};
   const tagCompsMap = {};
 
+  // 遍历组件
   Promise.all(globPromises).then((values) => {
     values.forEach((files) => {
       console.log(files);
@@ -54,10 +57,16 @@ function run() {
         const config = require(path.resolve(filePath, 'config.json'));
         const { pageName, tagName } = config;
 
+        // 组件图片
+        config.image = path.relative(`${rootPath}/storybook/pages/index`, filePath) + '/default.png';
+        console.log(config.image);
+
         // 组件英文名字
         const pathArray = filePath.split('/');
         const compNameEN = pathArray[pathArray.length - 2];
         config.componentNameEN = compNameEN;
+
+        filePath = getPagePath(filePath);
 
         // 组件路径
         const compPath = filePath + '/index/index';
@@ -105,17 +114,21 @@ function run() {
     );
 
     // 写入app.jsond哦pages列表
-    const appJSON = require(path.resolve('app.json'));
+    const appJSON = require(path.resolve(appJSONPath));
 
     const pagesLength = storybookPagesJSON.pages.length;
     for (let i = pagesLength - 1; i > -1; i--) {
       const pagePath = storybookPagesJSON.pages[i];
       if (!appJSON.pages.includes(pagePath)) {
-        appJSON.pages.unshift(pagePath);
+        if (pagePath == 'storybook/pages/index/index') {
+          appJSON.pages.unshift(pagePath);
+        }else {
+          appJSON.pages.push(pagePath);
+        }
       }
     }
 
-    fs.writeFile(path.resolve('app.json'), JSON.stringify(appJSON, null, 2));
+    fs.writeFile(path.resolve(appJSONPath), JSON.stringify(appJSON, null, 2));
 
     console.log('storybook-miniapp 运行成功');
   });
@@ -128,4 +141,37 @@ function globPromise(pattern = '', options = {}) {
       resolve(files);
     });
   });
+}
+
+function getConfig() {
+  let path = './';
+  for (let i = 0; i < 100; i++) {
+    const files = glob.sync(`${path}storybook.config.js`, {});
+    // console.log(i, path, files);
+
+    if (files && files.length) {
+      return {rootPath: path, configPath: files[0]};
+    }
+
+    if (i == 0) {
+      path = '../';
+    } else {
+      path += '../';
+    }
+  }
+}
+
+function getPagePath(file){
+
+  const filePathSegments = file.split('/');
+  let result = '';
+
+  for(let i=0; i<filePathSegments.length; i++){
+    const segmentPath = filePathSegments[i];
+    if(segmentPath !== '..' && segmentPath !== '.'){
+      result +=`/${segmentPath}`;
+    }
+  }
+
+  return result.substr(1);
 }

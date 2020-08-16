@@ -12,22 +12,18 @@
 	</view>
 
 	<!-- 列表内容 -->
-	<view class="swiper-container">
-		<swiper current="{{swiperCurrent}}" bindchange="swiperChange">
-			<block wx:for="{{tabListComps}}" wx:key="*this" wx:for-item="swiperItem">
-				<swiper-item>
-					<block wx:for="{{swiperItem}}" wx:for-item="cmpCates" wx:key="*this">
-						<cells ext-class="my-cells" title="{{cmpCates.type}}">
-							<cell ext-class="my-cell" wx:for="{{cmpCates.list}}" wx:key="*this" bind:tap="navigateTo" data-path="{{item.path}}">
-								<!-- <view> -->
-								<image class="" mode="aspectFit" src="{{item.image || '../../assets/default.png'}}" />
-								<!-- </view> -->
-								<view slot="footer">{{item.componentName}}</view>
-							</cell>
-						</cells>
-					</block>
-				</swiper-item>
-			</block>
-		</swiper>
+	<view class="swiper-container" current="{{swiperCurrent}}" bindchange="swiperChange">
+		<block wx:for="{{tabListComps}}" wx:key="*this" wx:for-item="swiperItem">
+			<scroll-view wx:if="{{tabCurrent == index}}">
+				<block wx:for="{{swiperItem}}" wx:for-item="cmpCates" wx:key="*this">
+					<cells ext-class="my-cells" title="{{cmpCates.type}}">
+						<view class="my-cell" wx:for="{{cmpCates.list}}" wx:key="*this" bind:tap="navigateTo" data-path="{{item.path}}">
+							<image class="cell-img" mode="scaleToFill" src="{{item.image}}" />
+							<view class="cell-title">{{item.componentName}}</view>
+						</view>
+					</cells>
+				</block>
+			</scroll-view>
+		</block>
 	</view>
 </view>

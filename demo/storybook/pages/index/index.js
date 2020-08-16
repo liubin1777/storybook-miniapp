@@ -6,7 +6,8 @@ Page({
   data: {
     tabList: ['页面分类', '标签分类'],
     tabListComps: [pageCompsMap.list, tagCompsMap.list],
-    swiperCurrent: 0
+    tabCurrent: 0,
+    swiperCurrent: 0,
   },
   onLoad: function () {
 

@@ -1,0 +1,23 @@
+page {
+  background: white;
+}
+
+.cmp-test {
+  background: white;
+  height: 100px;
+  border-style: dashed;
+  border-color: lightgray;
+  box-sizing: border-box;
+  margin: 15px;
+  text-align: center;
+}
+
+.cmp-test__title {
+  color: rgb(172, 172, 172);
+  font-size: 30px;
+  line-height: 100px;
+}
+
+.custom-state-list {
+  background: white;
+}

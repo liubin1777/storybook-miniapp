@@ -1,9 +1,10 @@
 {
-  "navigationBarTitleText": "测试组件",
+  "navigationBarTitleText": "<%= componentNameCN %>",
   "usingComponents": {
     "searchbar": "/miniprogram_npm/weui-miniprogram/searchbar/searchbar",
     "state-list": "/storybook/components/state-list/index",
     "cell": "/miniprogram_npm/weui-miniprogram/cell/cell",
-    "cells": "/miniprogram_npm/weui-miniprogram/cells/cells"
+    "cells": "/miniprogram_npm/weui-miniprogram/cells/cells",
+    "<%= componentNameEN %>": "../<%= componentNameEN %>/index"
   }
 }

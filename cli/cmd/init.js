@@ -9,9 +9,9 @@ const path = require('path');
 program
   .command('init')
   .description('初始化 storybook.config.js 配置文件')
-  .action(init);
+  .action(callback);
 
-function init() {
+function callback() {
   const configPath = './storybook.config.js';
   if (fs.existsSync(configPath)) {
     console.warn('storybook.config.js 配置文件已存在，请不要重复创建');

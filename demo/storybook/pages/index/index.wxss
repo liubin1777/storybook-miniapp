@@ -10,8 +10,7 @@
 }
 
 .swiper-container {
-  /* background: lightblue; */
-  /* height: 100vh; */
+  height: 100vh;
 }
 
 .my-cells {
@@ -19,13 +18,21 @@
 }
 
 .my-cell {
-  /* background: red; */
-  margin-top: 0;
-  padding-top: 0 !important;
-  padding-bottom: 0 !important; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: rgb(235, 235, 235);
+  padding: 4rpx 20rpx;
 }
 
-image {
+.cell-img {
   width: 70%;
   height: 200rpx;
+}
+
+.cell-title{
+  text-align: right;
+  color: rgb(94, 94, 94);
 }

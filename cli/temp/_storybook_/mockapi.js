@@ -2,7 +2,7 @@
 module.exports = {
   data: {
     component: {
-      title: '测试组件',
+      title: '<%= componentNameCN %>',
       color: 'black'
     }
   },

@@ -1,7 +1,9 @@
 <!--index.wxml-->
 <view>
 
-	<!-- 测试组件，开发同学替换为你的组件 -->
+	<!-- 金刚位 -->
+	<KingPie />
+	<!-- 测试组件 -->
 	<view class="cmp-test">
 		<view class="cmp-test__title" style="color: {{mockData.color}}">{{mockData.name}}</view>
 	</view>
