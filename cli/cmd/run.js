@@ -59,7 +59,7 @@ function callback(args) {
 
         // 组件图片
         config.image = path.relative(`${rootPath}/storybook/pages/index`, filePath) + '/default.png';
-        console.log(config.image);
+        // console.log(config.image);
 
         // 组件英文名字
         const pathArray = filePath.split('/');

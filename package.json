@@ -1,6 +1,6 @@
 {
   "name": "storybook-miniapp",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "小程序版 storybook",
   "main": "index.js",
   "bin": {
