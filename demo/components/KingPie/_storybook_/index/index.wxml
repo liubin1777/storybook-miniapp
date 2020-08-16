@@ -7,5 +7,5 @@
 	</view>
 
 	<!-- 状态列表，组件开发同学不需要关注这行代码 -->
-
+	<state-list ext-class="custom-state-list" list="{{actionList}}" bindtap="$onTap" />
 </view>

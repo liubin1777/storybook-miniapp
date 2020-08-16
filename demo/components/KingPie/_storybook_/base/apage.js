@@ -11,7 +11,9 @@ module.exports = (options) => {
       onLoad: function (e) {
         onLoad && onLoad.call(this, e);
       },
-      $onTap({ title, detail }) {
+      $onTap(e) {
+        const { title, detail } = e.detail;
+        
         this.data.actionList.forEach((item) => {
           if (title == item.title) {
             let value = detail.value;
@@ -27,7 +29,7 @@ module.exports = (options) => {
           }
         });
       },
-    },
-    ...options
+      ...options
+    }
   );
 };
