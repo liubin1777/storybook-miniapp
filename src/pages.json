@@ -1,6 +1,5 @@
 {
   "pages": [
-    "storybook/pages/index/index",
-    "storybook/pages/search/index"
+    "storybook/pages/index/index"
   ]
 }

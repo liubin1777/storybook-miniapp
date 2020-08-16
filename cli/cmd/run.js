@@ -89,13 +89,13 @@ function run() {
     });
 
     fs.writeFile(
-      path.resolve(storybookPath, 'pageCompsMap.json'),
-      JSON.stringify({ list: pageCompsList }, null, 2)
+      path.resolve(storybookPath, 'pageCompsMap.js'),
+      `module.exports = ${JSON.stringify({ list: pageCompsList }, null, 2)}`
     );
 
     fs.writeFile(
-      path.resolve(storybookPath, 'tagCompsMap.json'),
-      JSON.stringify({ list: tagCompsList }, null, 2)
+      path.resolve(storybookPath, 'tagCompsMap.js'),
+      `module.exports = ${JSON.stringify({ list: tagCompsList }, null, 2)}`
     );
 
     // 生成 storybook pages 列表

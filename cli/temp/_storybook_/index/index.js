@@ -1,5 +1,5 @@
 //index.js
-const aPage = require('/storybook/utils/apage.js'); // page基类
+const aPage = require('../base/apage.js'); // page基类
 const mockapi = require('../mockapi'); // 模拟API接口数据
 
 /**
@@ -21,7 +21,7 @@ const actionList = [
   }
 ]
 
-Page({
+aPage({
   data: {
     actionList
   },

@@ -1,3 +1,8 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "searchbar": "/miniprogram_npm/weui-miniprogram/searchbar/searchbar",
+    "tab": "../components/tab/index",
+    "cell": "/miniprogram_npm/weui-miniprogram/cell/cell",
+    "cells": "/miniprogram_npm/weui-miniprogram/cells/cells"
+  }
 }

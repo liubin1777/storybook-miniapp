@@ -1,13 +1,33 @@
 <!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
-  </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
+<view>
+
+	<!-- 头部导航栏 -->
+	<view class="top-bar">
+		<!-- 搜索 -->
+		<view class="search">
+			<searchbar />
+		</view>
+		<!-- 分类tab -->
+		<tab current="{{tabCurrent}}" list="{{tabList}}" bind:onChange="onTabChange" />
+	</view>
+
+	<!-- 列表内容 -->
+	<view class="swiper-container">
+		<swiper current="{{swiperCurrent}}" bindchange="swiperChange">
+			<block wx:for="{{tabListComps}}" wx:key="*this" wx:for-item="swiperItem">
+				<swiper-item>
+					<block wx:for="{{swiperItem}}" wx:for-item="cmpCates" wx:key="*this">
+						<cells ext-class="my-cells" title="{{cmpCates.type}}">
+							<cell ext-class="my-cell" wx:for="{{cmpCates.list}}" wx:key="*this" bind:tap="navigateTo" data-path="{{item.path}}">
+								<!-- <view> -->
+								<image class="" mode="aspectFit" src="{{item.image || '../../assets/default.png'}}" />
+								<!-- </view> -->
+								<view slot="footer">{{item.componentName}}</view>
+							</cell>
+						</cells>
+					</block>
+				</swiper-item>
+			</block>
+		</swiper>
+	</view>
 </view>

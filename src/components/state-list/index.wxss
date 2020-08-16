@@ -1,0 +1,28 @@
+/* storybook/components/state-list/index.wxss */
+.state-list-container {
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  box-sizing: border-box;
+  margin: 20rpx 0 0 20rpx;
+}
+
+.state-list {
+  display: flex;
+  justify-content: start;
+  flex-wrap: wrap;
+  padding-bottom: 20rpx;
+}
+
+.state-item {
+  height: 50rpx;
+  margin-right:20rpx;
+  margin-bottom: 20rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #333;
+  font-size: 24rpx;
+  background-color: rgba(221, 221, 221, 0.7);
+  padding: 0 20rpx;
+}

@@ -17,3 +17,7 @@ page {
   font-size: 30px;
   line-height: 100px;
 }
+
+.custom-state-list {
+  background: white;
+}

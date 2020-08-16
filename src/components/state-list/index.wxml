@@ -1,0 +1,6 @@
+<!--storybook/components/state-list/index.wxml-->
+<view class="state-list-container ext-class">
+  <view class="state-list">
+    <view wx:for="{{list}}" wx:key="*this" class="state-item" bindtap="onTap" data-index="{{index}}" data-title="{{item.title}}">{{item.title}}</view>
+  </view>
+</view>
